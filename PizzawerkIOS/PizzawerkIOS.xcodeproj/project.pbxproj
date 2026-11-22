@@ -1,0 +1,28 @@
+// !$*UTF8*$!
+{
+ archiveVersion = 1; classes = {}; objectVersion = 56;
+ objects = {
+ A1 = {isa = PBXGroup; children = (A2, A3); sourceTree = "<group>";};
+ A2 = {isa = PBXGroup; path = PizzawerkIOS; sourceTree = "<group>"; children = (F1,F2,F3,F4,F5,F6);};
+ A3 = {isa = PBXGroup; name = Products; sourceTree = "<group>"; children = (P1);};
+ F1={isa=PBXFileReference;path=PizzawerkIOSApp.swift;sourceTree="<group>";lastKnownFileType=sourcecode.swift;};
+ F2={isa=PBXFileReference;path=ContentView.swift;sourceTree="<group>";lastKnownFileType=sourcecode.swift;};
+ F3={isa=PBXFileReference;path=WebView.swift;sourceTree="<group>";lastKnownFileType=sourcecode.swift;};
+ F4={isa=PBXFileReference;path=RefreshManager.swift;sourceTree="<group>";lastKnownFileType=sourcecode.swift;};
+ F5={isa=PBXFileReference;path=Assets.xcassets;sourceTree="<group>";lastKnownFileType=folder.assetcatalog;};
+ F6={isa=PBXFileReference;path=Info.plist;sourceTree="<group>";lastKnownFileType=text.plist.xml;};
+ P1={isa=PBXFileReference;explicitFileType=wrapper.application;includeInIndex=0;path=PizzawerkIOS.app;sourceTree=BUILT_PRODUCTS_DIR;};
+ B1={isa=PBXBuildFile;fileRef=F1;};B2={isa=PBXBuildFile;fileRef=F2;};B3={isa=PBXBuildFile;fileRef=F3;};B4={isa=PBXBuildFile;fileRef=F4;};B5={isa=PBXBuildFile;fileRef=F5;};
+ S1={isa=PBXSourcesBuildPhase;buildActionMask=2147483647;files=(B1,B2,B3,B4);runOnlyForDeploymentPostprocessing=0;};
+ R1={isa=PBXResourcesBuildPhase;buildActionMask=2147483647;files=(B5);runOnlyForDeploymentPostprocessing=0;};
+ G1={isa=PBXFrameworksBuildPhase;buildActionMask=2147483647;files=();runOnlyForDeploymentPostprocessing=0;};
+ T1={isa=PBXNativeTarget;buildConfigurationList=C2;buildPhases=(S1,G1,R1);buildRules=();dependencies=();name=PizzawerkIOS;productName=PizzawerkIOS;productReference=P1;productType="com.apple.product-type.application";};
+ C1={isa=XCConfigurationList;buildConfigurations=(D1,R2);defaultConfigurationIsVisible=0;defaultConfigurationName=Release;};
+ C2={isa=XCConfigurationList;buildConfigurations=(D2,R3);defaultConfigurationIsVisible=0;defaultConfigurationName=Release;};
+ D1={isa=XCBuildConfiguration;name=Debug;buildSettings={};};R2={isa=XCBuildConfiguration;name=Release;buildSettings={};};
+ D2={isa=XCBuildConfiguration;name=Debug;buildSettings={ASSETCATALOG_COMPILER_APPICON_NAME=AppIcon;CODE_SIGN_STYLE=Automatic;CURRENT_PROJECT_VERSION=1;DEVELOPMENT_TEAM="";GENERATE_INFOPLIST_FILE=NO;INFOPLIST_FILE=PizzawerkIOS/Info.plist;IPHONEOS_DEPLOYMENT_TARGET=16.0;MARKETING_VERSION=1.0;PRODUCT_BUNDLE_IDENTIFIER=de.pizzawerk.ios;PRODUCT_NAME="$(TARGET_NAME)";SDKROOT=iphoneos;SUPPORTED_PLATFORMS="iphoneos iphonesimulator";SWIFT_VERSION=5.0;TARGETED_DEVICE_FAMILY="1,2";};};
+ R3={isa=XCBuildConfiguration;name=Release;buildSettings={ASSETCATALOG_COMPILER_APPICON_NAME=AppIcon;CODE_SIGN_STYLE=Automatic;CURRENT_PROJECT_VERSION=1;DEVELOPMENT_TEAM="";GENERATE_INFOPLIST_FILE=NO;INFOPLIST_FILE=PizzawerkIOS/Info.plist;IPHONEOS_DEPLOYMENT_TARGET=16.0;MARKETING_VERSION=1.0;PRODUCT_BUNDLE_IDENTIFIER=de.pizzawerk.ios;PRODUCT_NAME="$(TARGET_NAME)";SDKROOT=iphoneos;SUPPORTED_PLATFORMS="iphoneos iphonesimulator";SWIFT_VERSION=5.0;TARGETED_DEVICE_FAMILY="1,2";};};
+ PROJ={isa=PBXProject;attributes={LastSwiftUpdateCheck=1600;LastUpgradeCheck=1600;TargetAttributes={T1={CreatedOnToolsVersion=16.0;};};};buildConfigurationList=C1;compatibilityVersion="Xcode 14.0";developmentRegion=de;hasScannedForEncodings=0;knownRegions=(de,en,Base);mainGroup=A1;productRefGroup=A3;projectDirPath="";projectRoot="";targets=(T1);};
+ };
+ rootObject = PROJ;
+}
