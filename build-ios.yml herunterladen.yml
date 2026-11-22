@@ -1,0 +1,64 @@
+name: Build Pizzawerk iOS
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Xcode-Version anzeigen
+        run: xcodebuild -version
+
+      - name: Xcode-Projekt finden
+        id: project
+        shell: bash
+        run: |
+          set -e
+          PROJECT=$(find . -name '*.xcodeproj' -print -quit)
+          if [ -z "$PROJECT" ]; then
+            echo "FEHLER: Keine .xcodeproj-Datei gefunden."
+            echo "Bitte den kompletten Inhalt von Pizzawerk_iOS_Xcode_Projekt.zip hochladen."
+            exit 1
+          fi
+          echo "Xcode-Projekt: $PROJECT"
+          echo "path=$PROJECT" >> "$GITHUB_OUTPUT"
+
+      - name: Verfuegbare Schemes anzeigen
+        run: xcodebuild -project "${{ steps.project.outputs.path }}" -list
+
+      - name: Pizzawerk fuer iPhone Simulator bauen
+        run: |
+          xcodebuild \
+            -project "${{ steps.project.outputs.path }}" \
+            -scheme PizzawerkIOS \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -derivedDataPath "$RUNNER_TEMP/PizzawerkDerivedData" \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Gebaute App vorbereiten
+        shell: bash
+        run: |
+          set -e
+          APP=$(find "$RUNNER_TEMP/PizzawerkDerivedData/Build/Products" -type d -name 'PizzawerkIOS.app' -print -quit)
+          if [ -z "$APP" ]; then
+            echo "FEHLER: PizzawerkIOS.app wurde nicht gefunden."
+            exit 1
+          fi
+          mkdir -p artifact
+          cp -R "$APP" artifact/PizzawerkIOS.app
+
+      - name: Build als Artifact hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pizzawerk-iOS-Simulator-Build
+          path: artifact/PizzawerkIOS.app
+          if-no-files-found: error
